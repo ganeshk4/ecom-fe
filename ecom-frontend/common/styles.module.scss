@@ -1,0 +1,39 @@
+$primaryText: #222;
+$secondText: #a0a0a0;
+$thirdText: #222;
+$disabledTextPrimary: #8a8a8a;;
+$successText: #0eb41c;
+
+
+.heading1 {
+  color: $primaryText;
+}
+.heading2 {
+  color: $primaryText;
+  font-size: 16px;
+  font-weight: 600;
+}
+.heading3 {
+  color: $primaryText;
+}
+
+.normalText {
+  color: $primaryText;
+  font-size: 14px;
+}
+.disabledText1 {
+  color: $disabledTextPrimary;
+}
+
+.subText1 {
+  color: $secondText;
+  font-size: 12px;
+}
+.subText2 {
+  color: $secondText;
+  font-size: 12px;
+}
+.subText3 {
+  color: $secondText;
+  font-size: 12px;
+}
