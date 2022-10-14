@@ -1,0 +1,16 @@
+@import "../../common/styles.module.scss";
+
+.filterSection {
+  background-color: #fff;
+}
+.filterHeader {
+  border-bottom: 1px solid #a0a0a0;
+  border-bottom-color: rgba(138, 138, 138, 0.1);
+  @extend .heading1;
+  padding: 15px;
+}
+.oneFilter:not(:last-child) {
+  border-bottom: 1px solid #a0a0a0;
+  border-bottom-color: rgba(138, 138, 138, 0.1);
+  padding: 15px 0px;
+}

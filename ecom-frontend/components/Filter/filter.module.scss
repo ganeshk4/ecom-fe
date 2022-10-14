@@ -1,0 +1,9 @@
+@import "../../common/styles.module.scss";
+.catHeading {
+  @extend .heading2;
+  padding: 15px;
+}
+.catCheckbox {
+  padding: 5px 15px;
+  display: flex;
+}

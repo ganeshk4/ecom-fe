@@ -5,8 +5,10 @@ import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
-      Home page
+    <div className='bdy'>
+      <div className={styles.container}>
+        Home page
+      </div>
     </div>
   )
 }

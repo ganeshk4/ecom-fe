@@ -21,6 +21,7 @@
 .name {
   @extend .heading2;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 .category {
   @extend .subText1;
@@ -53,11 +54,23 @@
     align-items: flex-end;
   }
 }
-
 .details {
+  margin-bottom: 5px;
   ul {
     padding: 0;
     margin: 0;
     padding-left: 15px;
   }
+}
+.actions {
+ display: flex;
+}
+.actionCta {
+  cursor: pointer;
+}
+.actionCta:not(:first-child) {
+  margin-left: 10px;
+}
+.outOfStock {
+  @extend .disabledText1; 
 }

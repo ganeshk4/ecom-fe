@@ -1,28 +1,45 @@
+import { useRouter } from 'next/router'
 import styles from "./productcard.module.scss";
 
 const ProductCard = ({ product }: any) => {
+  const router = useRouter();
+
+  const showDetails = () => {
+    router.push(`/products/${product.displayId}`)
+  }
 	return (
-		<div className={styles.productcard }>
-      <div className={styles.productImagePart}>
-        {/* <div>{ product.image }</div> */}
-      </div>
-      <div className={styles.productDetailsPart}>
-        <div className={styles.name}>{product.name}</div>
-        <div className={styles.category}>{product.name}</div>
-        <div className={styles.ratings}>Ratings</div>
-        <div className={styles.priceSection}>
-          <div className={styles.price}>&#8377;{product.price}</div>
-          <div className={styles.fakePrice}>&#8377;{product.fakePrice}</div>
-          <div className={styles.discount}>10%</div>
-        </div>
-        <div className={styles.details}>
-          <ul>
-            <li>lorem ipsum</li>
-            <li>dolor sit amet</li>
-            <li>lorem ipsum dolor sit amet</li>
-          </ul>
-        </div>
-      </div>
+		<div className={styles.productcard}>
+			<div className={styles.productImagePart}>
+				{/* <div>{ product.image }</div> */}
+			</div>
+			<div className={styles.productDetailsPart}>
+				<div onClick={showDetails} className={styles.name}>{product.name}</div>
+				<div className={styles.category}>{product.category}</div>
+				<div className={styles.ratings}>Ratings</div>
+				<div className={styles.priceSection}>
+					<div className={styles.price}>&#8377;{product.price}</div>
+					<div className={styles.fakePrice}>&#8377;{product.fakePrice}</div>
+					<div className={styles.discount}>{product.discount}%</div>
+				</div>
+				{product.details && product.details.length && (
+					<div className={styles.details}>
+						<ul>
+							{product.details.map((detail: any) => {
+								return <li>{detail}</li>;
+							})}
+						</ul>
+					</div>
+				)}
+				<div className={styles.actions}>
+					{product?.availableQty > 0 && (
+						<>
+							<button className={styles.actionCta}> Add to cart</button>
+							<button className={styles.actionCta}> Buy now</button>
+						</>
+					)}
+					{product?.availableQty == 0 && <div className={styles.outOfStock}>Out of Stock</div>}
+				</div>
+			</div>
 		</div>
 	);
 };
