@@ -1,3 +1,4 @@
+import Typography from "@mui/material/Typography";
 import Filter from "../Filter";
 import styles from "./filters.module.scss";
 
@@ -11,13 +12,17 @@ const Filters = () => {
 
 	return (
 		<div className={styles.filterSection}>
-			<div className={styles.filterHeader}>Filter</div>
-				<div className={styles.oneFilter}>
-					<Filter type={"category"} list={categoryFilters}></Filter>
-				</div>
-				<div className={styles.oneFilter}>
-					<Filter type={"category"} list={categoryFilters}></Filter>
-				</div>
+			<div className={styles.filterHeader}>
+				<Typography variant="h6" component="div">
+					Filter
+				</Typography>
+			</div>
+			<div className={styles.oneFilter}>
+				<Filter type={"category"} list={categoryFilters}></Filter>
+			</div>
+			<div className={styles.oneFilter}>
+				<Filter type={"category"} list={categoryFilters}></Filter>
+			</div>
 		</div>
 	);
 };

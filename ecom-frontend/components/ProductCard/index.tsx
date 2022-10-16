@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 import styles from "./productcard.module.scss";
+import Button from '@mui/material/Button';
 
 const ProductCard = ({ product }: any) => {
   const router = useRouter();
@@ -33,7 +34,7 @@ const ProductCard = ({ product }: any) => {
 				<div className={styles.actions}>
 					{product?.availableQty > 0 && (
 						<>
-							<button className={styles.actionCta}> Add to cart</button>
+							<Button variant="contained" className={styles.actionCta}> Add to cart</Button>
 							<button className={styles.actionCta}> Buy now</button>
 						</>
 					)}
