@@ -10,14 +10,13 @@ const axiosOptions = {
 };
 
 axios.defaults.withCredentials = true;
+axios.defaults.headers.common['secret'] = process.env.API_SECRET;
 
 const getRequest = (url: string, params = {}) => {
 	return axios.get(BASEURL + url, params);
 };
 
 const postRequest = (url: string, body = {}) => {
-  console.log(process.env.BACKEND_URL);
-  console.log(BASEURL + url);
 	return axios.post(BASEURL + url, body, axiosOptions);
 };
 
