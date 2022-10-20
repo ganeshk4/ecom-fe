@@ -25,8 +25,8 @@ const ProductCard = ({ product }: any) => {
 				{product.details && product.details.length && (
 					<div className={styles.details}>
 						<ul>
-							{product.details.map((detail: any) => {
-								return <li>{detail}</li>;
+							{product.details.map((detail: any, $index: number) => {
+								return <li key={$index}>{detail}</li>;
 							})}
 						</ul>
 					</div>
