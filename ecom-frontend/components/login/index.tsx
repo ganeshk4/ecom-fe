@@ -1,9 +1,13 @@
 import { Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions, Button } from "@mui/material";
 import { SyntheticEvent, useState } from "react";
 import { postRequest } from "../../utils/requests";
+import { useDispatch, useSelector } from "react-redux";
+import { selectState, setUser } from "../../store/store.slice";
 import styles from "./login.module.scss";
 
 const LoginModal = (props: any) => {
+	//const state = useSelector(selectState);
+  const dispatch = useDispatch();
 	const { open, setOpen} = props;
 	const [otp, setOtp] = useState(false);
 	const [otpField, setOtpField] = useState('');
@@ -14,7 +18,6 @@ const LoginModal = (props: any) => {
 	}
 
 	const createLogin = async() => {
-		const mobile = (document.querySelector('#mobile') as HTMLInputElement)?.value;
 		const {data: res} = await postRequest('/login', {
 			mobile
 		});
@@ -24,11 +27,11 @@ const LoginModal = (props: any) => {
 	}
 
 	const verifyOtp = async() => {
-		const otp = (document.querySelector('#otp') as HTMLInputElement)?.value;
 		const {data: res} = await postRequest('/verifyOtp', {
-			otp
+			otp: otpField
 		});
 		if (res && res.isSuccess) {
+			dispatch(setUser(res.user));
 			setOtp(false);
 			setOpen(false);
 		}

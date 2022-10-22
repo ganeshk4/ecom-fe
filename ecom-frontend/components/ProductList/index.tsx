@@ -3,7 +3,6 @@ import ProductCard from "../ProductCard";
 import styles from "./styles.module.scss";
 
 const ProductList = () => {
-  
   // add loader
   const data = [
     {

@@ -1,28 +1,29 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { selectState } from "../../store/store.slice";
 import LoginModal from "../login";
 import styles from "./header.module.scss";
 
 const WebHeader = () => {
-
+	const state = useSelector(selectState);
+	const { user } = state;
 	const [open, setOpen] = useState(false);
-	const [otp, setOtp] = useState(false);
 
 	const login = () => {
-		setOtp(false);
 		setOpen(true);
-	}
-	const handleClose = () => {
-		setOpen(false);
-	}
+	};
 
 	return (
 		<>
 			<div className={styles.header}>
 				<div className={styles.cartPic}>Shopping Cart</div>
-				<div className={styles.profilePic}>G</div>
-				<div onClick={login} className={styles.loginCta}>
-					Login
-				</div>
+				{user && user.id ? (
+					<div className={styles.profilePic}>{`${user?.firstName.substring(0,1)}${user?.lastName.substring(0,1)}`}</div>
+				) : (
+					<div onClick={login} className={styles.loginCta}>
+						Login
+					</div>
+				)}
 			</div>
 			<LoginModal open={open} setOpen={setOpen} />
 		</>
