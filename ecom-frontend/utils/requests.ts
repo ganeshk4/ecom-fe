@@ -12,8 +12,8 @@ const axiosOptions = {
 axios.defaults.withCredentials = true;
 axios.defaults.headers.common['secret'] = process.env.API_SECRET;
 
-const getRequest = (url: string, params = {}) => {
-	return axios.get(BASEURL + url, params);
+const getRequest = (url: string) => {
+	return axios.get(BASEURL + url, axiosOptions);
 };
 
 const postRequest = (url: string, body = {}) => {

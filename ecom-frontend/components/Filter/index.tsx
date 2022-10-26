@@ -5,11 +5,12 @@ const Filter = ({ type, list, changed }: any) => {
 		<>
 			<div className={styles.catHeading}>{type}</div>
 				{list.map((item: any) => (
-					<div key={item}>
+					<div key={item.id}>
+						{/* { console.log(item) } */}
 						{
 							<div className={styles.catCheckbox}>
-								<input id={`id${item}`} type="checkbox" />
-								<label htmlFor={`id${item}`}>{item}</label>
+								<input id={`id${item.category}${item.id}`} type="checkbox" />
+								<label htmlFor={`id${item.category}${item.id}`}>{item.category}</label>
 							</div>
 						}
 					</div>
