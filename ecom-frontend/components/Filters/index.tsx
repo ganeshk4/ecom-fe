@@ -6,19 +6,28 @@ import styles from "./filters.module.scss";
 
 const Filters = () => {
 	const [categoryTypes, setCategoryTypes] = useState([]);
-	const categoryFilters = [
-    "category1",
-    "category2",
-    "category3",
-    "category4"
-  ];
+	const [filters, setFilters] = useState({});
 
 	const getCategories = async () => {
-		const {data: res} = await getRequest('/category/all');
+		let url = '/category/all';
+		const {data: res} = await getRequest(url);
 		if (res && res.isSuccess) {
-			console.log(res.categoryTypes);
 			setCategoryTypes(res.categoryTypes);
 		}
+	}
+
+	const filterChanged = (checked: any, item: any) => {
+		let newFilters: any = filters;
+		if (checked) {
+			if (!newFilters[item.categoryTypeId]) {
+				newFilters[item.categoryTypeId] = {};
+			}
+			newFilters[item.categoryTypeId][item.id] = true;
+		} else {
+			delete newFilters[item.categoryTypeId][item.id];
+		}
+		setFilters(newFilters);
+		console.log(filters);
 	}
 
 	useEffect(()=> {
@@ -34,7 +43,7 @@ const Filters = () => {
 			</div>
 			{categoryTypes.map((categoryType: any) => (
 				<div className={styles.oneFilter} key={categoryType.id}>
-					<Filter type={categoryType.type} list={categoryType.categories}></Filter>
+					<Filter type={categoryType.type} list={categoryType.categories} changed={filterChanged}></Filter>
 				</div>
 			))}
 		</div>

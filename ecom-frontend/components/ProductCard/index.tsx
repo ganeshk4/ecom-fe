@@ -19,13 +19,13 @@ const ProductCard = ({ product }: any) => {
 				<div className={styles.ratings}>Ratings</div>
 				<div className={styles.priceSection}>
 					<div className={styles.price}>&#8377;{product.price}</div>
-					<div className={styles.fakePrice}>&#8377;{product.fakePrice}</div>
+					<div className={styles.fakePrice}>&#8377;{product.displayPrice}</div>
 					<div className={styles.discount}>{product.discount}%</div>
 				</div>
-				{product.details && product.details.length && (
+				{product.description && product.description.length && (
 					<div className={styles.details}>
 						<ul>
-							{product.details.map((detail: any, $index: number) => {
+							{product.description.map((detail: any, $index: number) => {
 								return <li key={$index}>{detail}</li>;
 							})}
 						</ul>
