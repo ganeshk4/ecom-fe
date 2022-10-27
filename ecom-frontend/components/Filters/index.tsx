@@ -1,21 +1,10 @@
 import Typography from "@mui/material/Typography";
-import { useEffect, useState } from "react";
-import { getRequest } from "../../utils/requests";
+import { useState } from "react";
 import Filter from "../Filter";
 import styles from "./filters.module.scss";
 
-const Filters = () => {
-	const [categoryTypes, setCategoryTypes] = useState([]);
-	const [filters, setFilters] = useState({});
-
-	const getCategories = async () => {
-		let url = '/category/all';
-		const {data: res} = await getRequest(url);
-		if (res && res.isSuccess) {
-			setCategoryTypes(res.categoryTypes);
-		}
-	}
-
+const Filters = ({categoryTypes, filters, setFilters}: any) => {
+	
 	const filterChanged = (checked: any, item: any) => {
 		let newFilters: any = filters;
 		if (checked) {
@@ -25,14 +14,12 @@ const Filters = () => {
 			newFilters[item.categoryTypeId][item.id] = true;
 		} else {
 			delete newFilters[item.categoryTypeId][item.id];
+			if (!Object.keys(newFilters[item.categoryTypeId]).length) {
+				delete newFilters[item.categoryTypeId];
+			}
 		}
 		setFilters(newFilters);
-		console.log(filters);
 	}
-
-	useEffect(()=> {
-		getCategories();
-	}, []);
 
 	return (
 		<div className={styles.filterSection}>

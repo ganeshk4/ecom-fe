@@ -7,18 +7,39 @@ import styles from "./styles.module.scss";
 const ProductList = () => {
   // add loader
   const [products, setProducts] = useState([]);
+  const [categoryTypes, setCategoryTypes] = useState([]);
+  const [filters, setFilters] = useState({});
+
+  const changedFilters = (filters: any) => {
+    setFilters(JSON.parse(JSON.stringify(filters)));
+  }
   
-  const getProducts = async () => {
+  const getProducts = async (params: any) => {
 		let url = '/product/list';
+    if (params) {
+      url += `?search=${encodeURIComponent(JSON.stringify(params))}`;
+    }
 		const {data: res} = await getRequest(url);
 		if (res && res.isSuccess) {
 			setProducts(res.products);
 		}
 	}
 
+  const getCategories = async () => {
+		let url = '/category/all';
+		const {data: res} = await getRequest(url);
+		if (res && res.isSuccess) {
+			setCategoryTypes(res.categoryTypes);
+		}
+	}
+
   useEffect(()=> {
-		getProducts();
+    getCategories();
 	}, []);
+
+  useEffect(()=> {
+		getProducts(filters);
+	}, [filters]);
   
   const data = [
     {
@@ -53,7 +74,7 @@ const ProductList = () => {
       <div className={`${styles.productListPage}`}>
         <div className={styles.smallWrapper}>
           <div className={styles.filters}>
-            <Filters></Filters>
+            { filters && <Filters filters={filters} setFilters={changedFilters} categoryTypes={categoryTypes}></Filters>}
           </div>
           <div className={styles.productsSection}>
             {products && products.length && products.map((product: any) => (
