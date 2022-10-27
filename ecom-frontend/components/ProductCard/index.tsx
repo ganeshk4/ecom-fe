@@ -32,13 +32,13 @@ const ProductCard = ({ product }: any) => {
 					</div>
 				)}
 				<div className={styles.actions}>
-					{product?.availableQty > 0 && (
+					{product?.availablity?.availableQty > 0 && (
 						<>
 							<Button variant="contained" className={styles.actionCta}> Add to cart</Button>
 							<button className={styles.actionCta}> Buy now</button>
 						</>
 					)}
-					{product?.availableQty == 0 && <div className={styles.outOfStock}>Out of Stock</div>}
+					{product?.availablity?.availableQty == 0 && <div className={styles.outOfStock}>Out of Stock</div>}
 				</div>
 			</div>
 		</div>
