@@ -1,0 +1,77 @@
+@import "../../common/styles.module.scss";
+.cartPage {
+  display: flex;
+  justify-content: center;
+}
+.smallWrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+}
+.shoppingCart {
+  font-size: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+.priceText {
+  text-align: right;
+  border-bottom: 1px solid #dddddd;
+}
+.cartWrapper {
+  width: 100%;
+}
+
+.cartItem {
+  border-bottom: 1px solid #dddddd;
+  display: flex;
+  padding: 15px;
+  padding-right: 0px;
+  justify-content: space-between;
+}
+
+.cartItemImg {
+  height: 180px;
+  width: 180px;
+  img {
+    height: 180px;
+    width: 180px;
+  }
+}
+
+.cartItemData {
+  padding: 15px;
+  padding-top: 0px;
+}
+.itemName {
+  @extend .heading1;
+  padding-bottom: 15px;
+}
+.inStock {
+  padding-bottom: 5px;
+}
+.inStock.active {
+  color: green;
+}
+.inStock.inactive {
+  color: red;
+}
+
+.cartItemPrice {
+  width: 150px;
+  text-align: right;
+  @extend .heading1;  
+}
+
+.checkoutSection {
+  display: flex;
+  font-size: 20px;
+  justify-content: right;
+}
+
+.checkoutSection.bottom {
+  padding-top: 15px;
+}
+
+.checkoutTotal {
+  margin-right: 10px;
+}

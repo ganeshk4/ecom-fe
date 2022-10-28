@@ -35,7 +35,7 @@ const ProductCard = ({ product }: any) => {
 					{product?.availablity?.availableQty > 0 && (
 						<>
 							<Button variant="contained" className={styles.actionCta}> Add to cart</Button>
-							<button className={styles.actionCta}> Buy now</button>
+							{/* <button className={styles.actionCta}> Buy now</button> */}
 						</>
 					)}
 					{product?.availablity?.availableQty == 0 && <div className={styles.outOfStock}>Out of Stock</div>}
