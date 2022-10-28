@@ -8,10 +8,14 @@ const ProductCard = ({ product }: any) => {
   const showDetails = () => {
     router.push(`/products/${product.displayId}`)
   }
+
+  const addToCart = () => {
+    console.log("addToCArt");
+  }
 	return (
 		<div className={styles.productcard}>
 			<div className={styles.productImagePart}>
-				{/* <div>{ product.image }</div> */}
+        <img src={product.imageUrl} />
 			</div>
 			<div className={styles.productDetailsPart}>
 				<div onClick={showDetails} className={styles.name}>{product.name}</div>
@@ -34,7 +38,7 @@ const ProductCard = ({ product }: any) => {
 				<div className={styles.actions}>
 					{product?.availablity?.availableQty > 0 && (
 						<>
-							<Button variant="contained" className={styles.actionCta}> Add to cart</Button>
+							<Button variant="contained" onClick={addToCart} className={styles.actionCta}> Add to cart</Button>
 							{/* <button className={styles.actionCta}> Buy now</button> */}
 						</>
 					)}

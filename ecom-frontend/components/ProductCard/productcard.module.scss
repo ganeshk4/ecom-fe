@@ -12,7 +12,12 @@
 .productImagePart {
   min-height: 125px;
   min-width: 125px;
+  img {
+    height: 125px;
+    width: 125px;
+  }
 }
+
 @import "../../common/styles.module.scss";
 
 .productDetailsPart {
