@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import styles from "./productcard.module.scss";
 import Button from '@mui/material/Button';
+import { postRequest } from '../../utils/requests';
 
 const ProductCard = ({ product }: any) => {
   const router = useRouter();
@@ -9,8 +10,17 @@ const ProductCard = ({ product }: any) => {
     router.push(`/products/${product.displayId}`)
   }
 
-  const addToCart = () => {
+  const addToCart = async (productId: number) => {
     console.log("addToCArt");
+		const {data: res} = await postRequest('/cart/add', {
+			productId,
+			qty: 1
+		});
+		if (res && res.isSuccess) {
+			// dispatch(setUser(res.user));
+			// setOtp(false);
+			// setOpen(false);
+		}
   }
 	return (
 		<div className={styles.productcard}>
@@ -22,7 +32,7 @@ const ProductCard = ({ product }: any) => {
 				<div className={styles.category}>{product.category}</div>
 				<div className={styles.ratings}>Ratings</div>
 				<div className={styles.priceSection}>
-					<div className={styles.price}>&#8377;{product.price}</div>
+					<div className={styles.price}>&#8377;{product.sellingPriceAT}</div>
 					<div className={styles.fakePrice}>&#8377;{product.displayPrice}</div>
 					<div className={styles.discount}>{product.discount}%</div>
 				</div>
@@ -38,7 +48,7 @@ const ProductCard = ({ product }: any) => {
 				<div className={styles.actions}>
 					{product?.availablity?.availableQty > 0 && (
 						<>
-							<Button variant="contained" onClick={addToCart} className={styles.actionCta}> Add to cart</Button>
+							<Button variant="contained" onClick={() => addToCart(product.id)} className={styles.actionCta}> Add to cart</Button>
 							{/* <button className={styles.actionCta}> Buy now</button> */}
 						</>
 					)}
