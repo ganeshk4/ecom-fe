@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { selectState } from "../../store/store.slice";
@@ -16,7 +17,9 @@ const WebHeader = () => {
 	return (
 		<>
 			<div className={styles.header}>
-				<div className={styles.cartPic}>Shopping Cart</div>
+				<div className={styles.cartPic}>
+					<Link href="/cart">Shopping Cart</Link>
+				</div>
 				{user && user.id ? (
 					<div className={styles.profilePic}>{`${user?.firstName.substring(0,1)}${user?.lastName.substring(0,1)}`}</div>
 				) : (

@@ -1,9 +1,25 @@
+import { useEffect } from "react";
+import { getRequest } from "../../utils/requests";
 import styles from "./cart.module.scss";
 
 const CartPage = ({ type, list, changed }: any) => {
 	const checkout = () => {
 		console.log("checkout");
 	}
+
+	const getCartDetails = async () => {
+		const {data: res} = await getRequest('/cart/details');
+		if (res && res.isSuccess) {
+			// dispatch(setUser(res.user));
+			// setOtp(false);
+			// setOpen(false);
+		}
+  }
+
+	useEffect(() => {
+		getCartDetails();
+	}, []);
+
 	return (
 		<>
 			<div className={`${styles.cartPage}`}>
