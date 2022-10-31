@@ -1,19 +1,58 @@
 import { useRouter } from "next/router";
+import Script from "next/script";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { selectState } from "../../store/store.slice";
 import { getRequest } from "../../utils/requests";
 import styles from "./checkout.module.scss";
 
 const CartCheckoutPage = () => {
 	const [cartDetails, setCartDetails] = useState<any>(null);
 	const [cartItems, setCartItems] = useState([]);
+	const [scriptLoaded, setScriptLoaded] = useState(false);
+	const state = useSelector(selectState);
+	const { user } = state;
+
 	const router = useRouter();
 	
 	const checkout = () => {
 		router.push(`/cart/checkout`);
 	}
 
-	const pay = () => {
+	const pay = async () => {
 		console.log("pay")
+		const {data: res} = await getRequest('/cart/startcheckout');
+		if (res && res.isSuccess) {
+			console.log(res);
+			const options = 
+			{
+				"key": process.env.RAZORPAY_KEY,
+				"name": "Ganesh test payment",
+				"description": "Test Transaction",
+				"order_id": res.razorpay_order_id ,
+				"handler": function (response: any){
+						alert(response.razorpay_payment_id);
+						alert(response.razorpay_order_id);
+						alert(response.razorpay_signature)
+				},
+				"prefill": {
+						"name": `${user.firstName} ${user.lastName}`,
+						"email": `${user.email ? user.email : 'ganeshk4@gmail.com'}`,
+						"contact": `${user.mobile}`
+				},
+				"notes": {
+						"address": "user addres"
+				},
+				"theme": {
+						"color": "#3399cc"
+				}
+			};
+
+			const rzp1 = new (window as any).Razorpay(options);
+			rzp1.open();
+			// setCartDetails(res.data);
+			// setCartItems(res.data?.cartItems);
+		}
 	}
 
 	const getCartDetails = async () => {
@@ -30,14 +69,22 @@ const CartCheckoutPage = () => {
 
 	return (
 		<>
+			<Script
+				src="https://checkout.razorpay.com/v1/checkout.js"
+				onLoad={() => {
+					setScriptLoaded(true);
+				}}
+			/>
 			<div className={`${styles.cartPage}`}>
-				<div className={styles.smallWrapper}>
-					<>Update Address</>
-					<div>
-						&#8377;{cartDetails?.payableAmount}
-						<button onClick={pay}>Pay</button>
+				{scriptLoaded && cartDetails && (
+					<div className={styles.smallWrapper}>
+						<>Update Address</>
+						<div>
+							&#8377;{cartDetails?.payableAmount}
+							<button onClick={pay}>Pay</button>
+						</div>
 					</div>
-				</div>
+				)}
 			</div>
 		</>
 	);
