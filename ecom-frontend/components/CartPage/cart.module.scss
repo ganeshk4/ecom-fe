@@ -11,6 +11,7 @@
 .shoppingCart {
   font-size: 24px;
   display: flex;
+  margin-bottom: 15px;
   justify-content: space-between;
 }
 .priceText {
@@ -39,6 +40,7 @@
 }
 
 .cartItemData {
+  width: 100%;;
   padding: 15px;
   padding-top: 0px;
 }
