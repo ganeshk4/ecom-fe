@@ -3,7 +3,7 @@ import Script from "next/script";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { selectState } from "../../store/store.slice";
-import { getRequest } from "../../utils/requests";
+import { getRequest, postRequest } from "../../utils/requests";
 import styles from "./checkout.module.scss";
 
 const CartCheckoutPage = () => {
@@ -31,9 +31,7 @@ const CartCheckoutPage = () => {
 				"description": "Test Transaction",
 				"order_id": res.razorpay_order_id ,
 				"handler": function (response: any){
-						alert(response.razorpay_payment_id);
-						alert(response.razorpay_order_id);
-						alert(response.razorpay_signature)
+					postRequest('/cart/verifyPayment', response);
 				},
 				"prefill": {
 						"name": `${user.firstName} ${user.lastName}`,

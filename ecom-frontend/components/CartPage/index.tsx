@@ -41,7 +41,7 @@ const CartPage = () => {
 
 						<div className={styles.cartItems}>
 							<div className={styles.priceText}>Price</div>
-							{cartItems.map((cartItem: any) => (
+							{cartItems && cartItems.map((cartItem: any) => (
 								<div className={styles.cartItem} key={cartItem.id}>
 									<div className={styles.cartItemImg}>
 										<img src={cartItem.imageUrl} />
