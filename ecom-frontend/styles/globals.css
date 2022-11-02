@@ -9,13 +9,7 @@ body {
 }
 
 .bdy {
-  background-color: #f5f5f5;
-  color: #222;
-  top: 0px;
-  bottom: 0px;
-  position: absolute;
-  right: 0;
-  left: 0;
+  background-color: #fff;
 }
 
 a {
@@ -29,6 +23,10 @@ a {
 
 .carousel .control-dots .dot {
   background-color: #082032 !important;
+}
+
+.carousel .slide img {
+  height: 100%;
 }
 
 @media (prefers-color-scheme: dark) {

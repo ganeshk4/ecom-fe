@@ -5,8 +5,10 @@ import {
 	InputLabel,
 	Button,
 	Menu,
+	Typography,
 	MenuItem,
 	Link,
+	Grid,
 	OutlinedInput,
 	styled,
 	TextField,
@@ -81,12 +83,24 @@ const LandingPage = () => {
 					</div>
 					<div className={styles.nav}>
 						<div className={styles.navBar}>
-							<Link href="#" onClick={handleClick} className={styles.navLink}>categorytype<ExpandMoreIcon /></Link>
-							<Link onClick={handleClick} className={styles.navLink}>Painting<ExpandMoreIcon /></Link>
-							<Link onClick={handleClick} className={styles.navLink}>Drawing<ExpandMoreIcon /></Link>
-							<Link onClick={handleClick} className={styles.navLink}>surface<ExpandMoreIcon /></Link>
-							<Link className={styles.navLink}>brands<ExpandMoreIcon /></Link>
-							<Link className={styles.navLink}>contact us</Link>
+							<Link href="#" onClick={handleClick} className={styles.navLink}>
+								<Typography variant="h6" component="span">categorytype</Typography><ExpandMoreIcon />
+							</Link>
+							<Link onClick={handleClick} className={styles.navLink}>
+								<Typography variant="h6" component="span">Painting</Typography><ExpandMoreIcon />
+							</Link>
+							<Link onClick={handleClick} className={styles.navLink}>
+								<Typography variant="h6" component="span">Drawing</Typography><ExpandMoreIcon />
+							</Link>
+							<Link onClick={handleClick} className={styles.navLink}>
+								<Typography variant="h6" component="span">surface</Typography><ExpandMoreIcon />
+							</Link>
+							<Link className={styles.navLink}>
+								<Typography variant="h6" component="span">brands</Typography><ExpandMoreIcon />
+							</Link>
+							<Link className={styles.navLink}>
+								<Typography variant="h6" component="span">contact us</Typography>
+							</Link>
 						</div>
 						<Menu
 							id="basic-menu"
@@ -104,7 +118,7 @@ const LandingPage = () => {
 					</div>
 					<Carousel showStatus={false} showThumbs={false} showArrows={true} onChange={()=>{}} onClickItem={()=>{}} onClickThumb={()=>{}}>
             <div className={styles.carouselImg}>
-            	<img src="https://storage.cloud.google.com/myfirstprojecttestecom/productimages/51lndCdP7uL._SX679_.jpg?authuser=1" />
+            	<img src="/temp3.webp" />
             </div>
             <div className={styles.carouselImg}>
             	<img src="https://storage.cloud.google.com/myfirstprojecttestecom/productimages/51lndCdP7uL._SX679_.jpg?authuser=1" />
@@ -117,11 +131,48 @@ const LandingPage = () => {
             </div>
           </Carousel>
 					<section className={styles.webSection}>
-						<div className={styles.sectionHeader}><h2>Shop Top Categories</h2></div>
+						<div className={styles.sectionHeader}>
+							<Typography variant="h5" component="h5">Shop Top Categories</Typography>
+						</div>
 						<div className={styles.sectionContent}>
-							<div className={styles.sectionCategory}>
-								<img src="https://storage.cloud.google.com/myfirstprojecttestecom/productimages/51lndCdP7uL._SX679_.jpg?authuser=1"/>
-							</div>
+							<Grid container spacing={2}>
+								<Grid item xs={4} md={2}>
+									<div className={styles.sectionCategory}>
+										<img src="/temp1.avif"/>
+										<div className={styles.catname}>Brushes</div>
+									</div>
+								</Grid>
+								<Grid item xs={4} md={2}>
+									<div className={styles.sectionCategory}>
+										<img src="/temp2.avif"/>
+										<div className={styles.catname}>Brushes</div>
+									</div>
+								</Grid>
+								<Grid item xs={4} md={2}>
+									<div className={styles.sectionCategory}>
+										<img src="https://storage.cloud.google.com/myfirstprojecttestecom/productimages/51lndCdP7uL._SX679_.jpg?authuser=1"/>
+										<div className={styles.catname}>Brushes</div>
+									</div>
+								</Grid>
+								<Grid item xs={4} md={2}>
+								<div className={styles.sectionCategory}>
+									<img src="https://storage.cloud.google.com/myfirstprojecttestecom/productimages/51lndCdP7uL._SX679_.jpg?authuser=1"/>
+									<div className={styles.catname}>Brushes</div>
+								</div>
+								</Grid>
+								<Grid item xs={4} md={2}>
+									<div className={styles.sectionCategory}>
+										<img src="/temp1.avif"/>
+										<div className={styles.catname}>Brushes</div>
+									</div>
+								</Grid>
+								<Grid item xs={4} md={2}>
+									<div className={styles.sectionCategory}>
+										<img src="/temp2.avif"/>
+										<div className={styles.catname}>Brushes</div>
+									</div>
+								</Grid>
+							</Grid>
 						</div>
 					</section>
 				</div>

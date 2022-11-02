@@ -23,7 +23,7 @@
 .searchSection {
   background-color: $colorBg;
   color: $colorFont;
-  padding: 25px 0;
+  padding: 25px 0 0 0;
   display: flex;
   justify-content: center;
   .search {
@@ -44,6 +44,7 @@
   margin-right: 30px;
   color: $colorFont;
   cursor: pointer;
+  align-items: center;
   text-decoration: none;
   @extend .heading3;
 }
@@ -53,15 +54,25 @@
 
 .webSection {
   margin-top: 50px;
-  background-color: rgba(0,0,0,0.1);
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 50px;
+  padding-right: 50px;
   .sectionHeader {
     display: flex;
+    color: $colorBg;
     justify-content: center;
+    margin-bottom: 30px;
   }
-  .sectionCategory img {
-    height: 150px;
-    width: 150px;
+  .sectionContent {
+    display: flex;
+    justify-content: space-between;
+    img {
+      width: 100%;
+    }
+    .catname {
+      color: $colorBgOrange;
+      margin-top: 20px;
+      text-align: center;
+      @extend .heading2;
+    }
   }
 }
