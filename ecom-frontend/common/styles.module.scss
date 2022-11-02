@@ -1,11 +1,12 @@
-$primaryText: #222;
+$primaryText: #FFF;
 $secondText: #a0a0a0;
 $thirdText: #222;
 $disabledTextPrimary: #8a8a8a;;
 $successText: #0eb41c;
 
-$colorBlue:  #082032;
-$colorOrange:  #FF4C29;
+$colorBg:  #082032;
+$colorBgOrange:  #FF4C29;
+$colorFont:  #FFF;
 
 // #082032
 // #2C394B
@@ -27,6 +28,7 @@ $colorOrange:  #FF4C29;
 }
 .heading3 {
   color: $primaryText;
+  font-size: 16px;
 }
 
 .normalText {

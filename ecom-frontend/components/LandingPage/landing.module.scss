@@ -1,0 +1,67 @@
+@import "../../common/styles.module.scss";
+
+.header {
+  background-color: $colorBgOrange;
+  color: $colorFont;
+}
+.textColor {
+  color: $colorBg;
+}
+.logo {
+  width: 200px;
+  padding: 10px 15px;
+  background-color: $colorBg;
+  img {
+    width: 100%;
+    display: block;
+  }
+}
+.textBg {
+  background-color: $colorFont;
+  border-radius: 4px;
+}
+.searchSection {
+  background-color: $colorBg;
+  color: $colorFont;
+  padding: 25px 0;
+  display: flex;
+  justify-content: center;
+  .search {
+    width: calc(100% - 30px);
+  } 
+}
+
+.nav {
+  background-color: $colorBg;
+  padding: 15px 0;
+}
+.navBar {
+  display: flex;
+  padding: 0 15px;
+}
+.navLink {
+  display: flex;
+  margin-right: 30px;
+  color: $colorFont;
+  cursor: pointer;
+  text-decoration: none;
+  @extend .heading3;
+}
+.carouselImg {
+  height: 450px;
+}
+
+.webSection {
+  margin-top: 50px;
+  background-color: rgba(0,0,0,0.1);
+  padding-left: 15px;
+  padding-right: 15px;
+  .sectionHeader {
+    display: flex;
+    justify-content: center;
+  }
+  .sectionCategory img {
+    height: 150px;
+    width: 150px;
+  }
+}
