@@ -3,6 +3,9 @@
 .header {
   background-color: $colorBgOrange;
   color: $colorFont;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 .textColor {
   color: $colorBg;
@@ -54,8 +57,9 @@
 
 .webSection {
   margin-top: 50px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  padding-right: 15px;
   .sectionHeader {
     display: flex;
     color: $colorBg;
@@ -75,4 +79,36 @@
       @extend .heading2;
     }
   }
+}
+.newArrImg {
+  height: 100%;
+  &>img {height: 100%;}
+}
+.productPaper {
+  padding: 15px;
+
+  .paperBody {
+    padding: 10px;
+  }
+  .paperBodyBtn {
+    margin-top: 20px;
+    color: $colorFont;
+    background-color: $colorBgOrange; 
+  }
+  .paperBodyPrice {
+    padding: 15px 0;
+    color: $colorBgOrange;
+  }
+  .paperBodyDesc {
+    color: $colorBg;
+    @extend .heading1;
+    &:hover {
+      color: $colorBgOrange;
+    }
+  }
+}
+
+.footerSection {
+  background-color: $colorBg;
+  padding: 50px 15px ;
 }
