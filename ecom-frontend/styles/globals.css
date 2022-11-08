@@ -38,3 +38,8 @@ a {
     background: black;
   }
 }
+
+button {
+  background-color: #FF4C29 !important;
+  color: #FFF !important; 
+}

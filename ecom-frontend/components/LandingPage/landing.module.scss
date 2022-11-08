@@ -54,6 +54,32 @@
 .carouselImg {
   height: 450px;
 }
+.carousel1 {
+  height: 100%;
+  width: 100%;
+  background-image: url("/temp3.webp");
+  background-size: 100% 100%;
+}
+.carouselContent {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.carouselContentText {
+  display: flex;
+  flex-direction: column;
+
+  span {
+    color: $colorBg;
+  }
+  button {
+    padding: 10px;
+    margin-top: 10px;
+  }
+}
 
 .webSection {
   margin-top: 50px;
@@ -110,5 +136,13 @@
 
 .footerSection {
   background-color: $colorBg;
-  padding: 50px 15px ;
+  padding: 50px 15px;
+
+  .footerHeader {
+    margin-bottom: 15px;
+  }
+
+  .footerCategory {
+    margin-bottom: 5px;
+  }
 }
