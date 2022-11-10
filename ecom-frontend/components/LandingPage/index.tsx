@@ -1,13 +1,4 @@
-import {
-	Button,
-	Typography,
-	Grid,
-	Box,
-	Paper,
-} from "@mui/material";
-
-
-
+import { Button, Typography, Grid, Box, Paper } from "@mui/material";
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -18,13 +9,10 @@ import { useState } from "react";
 import Nav from "../../common/Nav";
 import CatCarousel from "./CatCarousel";
 import WebSection from "./WebSection";
+import Footer from "../../common/Footer";
 
 const LandingPage = () => {
 	const [visible, setVisible] = useState(0);
-
-	
-
-	
 
 	return (
 		<>
@@ -134,109 +122,7 @@ const LandingPage = () => {
 					</Grid>
 				</WebSection>
 
-				<section>
-					<div className={styles.footerSection}>
-						<Grid container spacing={2}>
-							<Grid item xs={3}>
-								<Typography
-									className={styles.footerHeader}
-									variant="h5"
-									component="h5"
-								>
-									Shop Category
-								</Typography>
-								<Typography
-									className={styles.footerCategory}
-									variant="subtitle1"
-									component="div"
-								>
-									Painting
-								</Typography>
-								<Typography
-									className={styles.footerCategory}
-									variant="subtitle1"
-									component="div"
-								>
-									Drawing
-								</Typography>
-								<Typography
-									className={styles.footerCategory}
-									variant="subtitle1"
-									component="div"
-								>
-									Surfaces
-								</Typography>
-								<Typography
-									className={styles.footerCategory}
-									variant="subtitle1"
-									component="div"
-								>
-									Brands
-								</Typography>
-								<Typography
-									className={styles.footerCategory}
-									variant="subtitle1"
-									component="div"
-								>
-									Handmade
-								</Typography>
-								<Typography
-									className={styles.footerCategory}
-									variant="subtitle1"
-									component="div"
-								>
-									Gold 1%
-								</Typography>
-							</Grid>
-							<Grid item xs={3}>
-								<Typography
-									className={styles.footerHeader}
-									variant="h5"
-									component="h5"
-								>
-									Quick Links
-								</Typography>
-								<Typography
-									className={styles.footerCategory}
-									variant="subtitle1"
-									component="div"
-								>
-									Privacy Policy
-								</Typography>
-								<Typography
-									className={styles.footerCategory}
-									variant="subtitle1"
-									component="div"
-								>
-									Shipping
-								</Typography>
-								<Typography
-									className={styles.footerCategory}
-									variant="subtitle1"
-									component="div"
-								>
-									Refund policy
-								</Typography>
-							</Grid>
-							<Grid item xs={3}>
-								<Typography
-									className={styles.footerHeader}
-									variant="h5"
-									component="h5"
-								>
-									Contact Us
-								</Typography>
-								<Typography
-									className={styles.footerCategory}
-									variant="subtitle1"
-									component="div"
-								>
-									contact@
-								</Typography>
-							</Grid>
-						</Grid>
-					</div>
-				</section>
+				<Footer></Footer>
 			</div>
 		</>
 	);
