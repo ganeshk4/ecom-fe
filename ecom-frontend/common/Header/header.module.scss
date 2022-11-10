@@ -6,6 +6,8 @@
   position: sticky;
   top: 0;
   z-index: 999;
+  display: flex;
+  justify-content: flex-end;
 }
 .logo {
   width: 200px;
@@ -15,4 +17,52 @@
     width: 100%;
     display: block;
   }
+}
+.loginCart {
+  padding-right: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+  height: 100%;
+  align-items: center;
+  >* {
+    margin: 0 10px;
+  }
+}
+.cartLnk {
+  position: relative;
+}
+.cartPic {
+  color: $colorFont;
+  >.cartCount {
+    right: 0px;
+    text-decoration: none;
+    position: absolute;
+    border-radius: 50%;
+    height: 16px;
+    width: 16px;
+    background: $colorBgOrange;
+    border: 1px $colorBg solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.loginContainer {
+  display: flex;
+  align-items: center;
+}
+.loginCta {
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  font-size: 18px;
+}
+.profilePic {
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
 }

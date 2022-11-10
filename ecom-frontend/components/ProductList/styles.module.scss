@@ -1,6 +1,9 @@
+@import "../../common/styles.module.scss";
+
 .productListPage {
   display: flex;
   justify-content: center;
+  background-color: $colorBg;
 }
 .smallWrapper {
   display: flex;
