@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Footer from "../../common/Footer";
 import Header from "../../common/Header";
 import Nav from "../../common/Nav";
 import SearchSection from "../../common/SearchSection";
@@ -108,6 +109,7 @@ const ProductList = () => {
 					</div>
 				</div>
 			</div>
+      <Footer></Footer>
 		</>
 	);
 };
