@@ -1,0 +1,20 @@
+@import "../../../common/styles.module.scss";
+.webSection {
+  margin-top: 50px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  padding-right: 15px;
+  .sectionHeader {
+    display: flex;
+    color: $colorBg;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  .sectionContent {
+    display: flex;
+    justify-content: space-between;
+    img {
+      width: 100%;
+    }
+  }
+}

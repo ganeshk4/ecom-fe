@@ -1,61 +1,12 @@
 @import "../../common/styles.module.scss";
 
-
-.carouselImg {
-  height: 450px;
-}
-.carousel1 {
-  height: 100%;
-  width: 100%;
-  background-image: url("/temp3.webp");
-  background-size: 100% 100%;
-}
-.carouselContent {
-  position: absolute;
-  height: 100%;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.carouselContentText {
-  display: flex;
-  flex-direction: column;
-
-  span {
-    color: $colorBg;
-  }
-  button {
-    padding: 10px;
-    margin-top: 10px;
-  }
+.catname {
+  color: $colorBgOrange;
+  margin-top: 20px;
+  text-align: center;
+  @extend .heading2;
 }
 
-.webSection {
-  margin-top: 50px;
-  padding-left: 15px;
-  padding-bottom: 15px;
-  padding-right: 15px;
-  .sectionHeader {
-    display: flex;
-    color: $colorBg;
-    justify-content: center;
-    margin-bottom: 30px;
-  }
-  .sectionContent {
-    display: flex;
-    justify-content: space-between;
-    img {
-      width: 100%;
-    }
-    .catname {
-      color: $colorBgOrange;
-      margin-top: 20px;
-      text-align: center;
-      @extend .heading2;
-    }
-  }
-}
 .newArrImg {
   height: 100%;
   &>img {height: 100%;}
