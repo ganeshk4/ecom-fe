@@ -1,39 +1,5 @@
 @import "../../common/styles.module.scss";
 
-.header {
-  background-color: $colorBgOrange;
-  color: $colorFont;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
-.textColor {
-  color: $colorBg;
-}
-.logo {
-  width: 200px;
-  padding: 10px 15px;
-  background-color: $colorBg;
-  img {
-    width: 100%;
-    display: block;
-  }
-}
-.textBg {
-  background-color: $colorFont;
-  border-radius: 4px;
-}
-.searchSection {
-  background-color: $colorBg;
-  color: $colorFont;
-  padding: 25px 0 0 0;
-  display: flex;
-  justify-content: center;
-  .search {
-    width: calc(100% - 30px);
-  } 
-}
-
 .nav {
   background-color: $colorBg;
   padding: 15px 0;

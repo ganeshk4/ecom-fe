@@ -1,8 +1,4 @@
 import {
-	FormControl,
-	IconButton,
-	InputAdornment,
-	InputLabel,
 	Button,
 	Menu,
 	Typography,
@@ -11,11 +7,8 @@ import {
 	Grid,
 	Box,
 	Paper,
-	OutlinedInput,
-	styled,
-	TextField,
 } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useState } from "react";
 import { useSelector } from "react-redux";
@@ -23,14 +16,16 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { selectState } from "../../store/store.slice";
 import styles from "./landing.module.scss";
 import { Carousel } from "react-responsive-carousel";
+import { useRouter } from 'next/router';
+import Header from "../../common/Header";
+import SearchSection from "../../common/SearchSection";
 
 const LandingPage = () => {
 	const state = useSelector(selectState);
+	const router = useRouter();
 	const [visible, setVisible] = useState(0);
 
-	const handleChange = () => {};
-
-	const search = () => {};
+	
 
 	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 	const open = Boolean(anchorEl);
@@ -44,40 +39,8 @@ const LandingPage = () => {
 	return (
 		<>
 			<div className="bdy">
-				<div className={styles.header}>
-					<div className={styles.logo}>
-						<img src="/logo.svg"></img>
-					</div>
-				</div>
-				<div className={styles.searchSection}>
-					<div className={styles.search}>
-						<FormControl className={styles.textBg} fullWidth variant="outlined">
-							<InputLabel htmlFor="outlined-adornment-password">
-								search product
-							</InputLabel>
-							<OutlinedInput
-								id="outlined-adornment-password"
-								type="text"
-								//value=''
-								inputProps={{
-									className: styles.textColor,
-								}}
-								onChange={handleChange}
-								endAdornment={
-									<InputAdornment position="end">
-										<IconButton
-											aria-label="toggle password visibility"
-											onClick={search}
-											edge="end"
-										>
-											<SearchIcon />
-										</IconButton>
-									</InputAdornment>
-								}
-							/>
-						</FormControl>
-					</div>
-				</div>
+				<Header></Header>
+				<SearchSection></SearchSection>
 				<div className={styles.nav}>
 					<div className={styles.navBar}>
 						<Link href="#" onClick={handleClick} className={styles.navLink}>
@@ -143,7 +106,7 @@ const LandingPage = () => {
 							<div className={styles.carouselContent}>
 								<div className={styles.carouselContentText}>
 									<Grid container spacing={2}>
-										<Grid item xs={4} md={12}>
+										<Grid item xs={12} md={12}>
 											<Typography variant="h4" component="span">
 												Paint your world with color
 											</Typography>
@@ -151,8 +114,8 @@ const LandingPage = () => {
 									</Grid>
 
 									<Grid container spacing={2}>
-										<Grid item xs={4} md={12}>
-											<Button>Shop Now</Button>
+										<Grid item xs={12} md={12}>
+											<Button onClick={()=> { router.push('/products') }}>Shop Now</Button>
 										</Grid>
 									</Grid>
 								</div>

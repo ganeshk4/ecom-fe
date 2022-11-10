@@ -1,0 +1,19 @@
+@import "../../common/styles.module.scss";
+
+.searchSection {
+  background-color: $colorBg;
+  color: $colorFont;
+  padding: 25px 0 0 0;
+  display: flex;
+  justify-content: center;
+  .search {
+    width: calc(100% - 30px);
+  } 
+}
+.textBg {
+  background-color: $colorFont;
+  border-radius: 4px;
+}
+.textColor {
+  color: $colorBg;
+}

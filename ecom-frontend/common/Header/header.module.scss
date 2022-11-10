@@ -1,0 +1,18 @@
+@import "../../common/styles.module.scss";
+
+.header {
+  background-color: $colorBgOrange;
+  color: $colorFont;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.logo {
+  width: 200px;
+  padding: 10px 15px;
+  background-color: $colorBg;
+  img {
+    width: 100%;
+    display: block;
+  }
+}
