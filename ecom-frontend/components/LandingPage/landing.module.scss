@@ -1,22 +1,6 @@
 @import "../../common/styles.module.scss";
 
-.nav {
-  background-color: $colorBg;
-  padding: 15px 0;
-}
-.navBar {
-  display: flex;
-  padding: 0 15px;
-}
-.navLink {
-  display: flex;
-  margin-right: 30px;
-  color: $colorFont;
-  cursor: pointer;
-  align-items: center;
-  text-decoration: none;
-  @extend .heading3;
-}
+
 .carouselImg {
   height: 450px;
 }

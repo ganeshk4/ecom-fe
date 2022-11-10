@@ -1,137 +1,37 @@
 import {
 	Button,
-	Menu,
 	Typography,
-	MenuItem,
-	Link,
 	Grid,
 	Box,
 	Paper,
 } from "@mui/material";
 
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { useState } from "react";
-import { useSelector } from "react-redux";
+
+
+
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { selectState } from "../../store/store.slice";
+
 import styles from "./landing.module.scss";
-import { Carousel } from "react-responsive-carousel";
-import { useRouter } from 'next/router';
 import Header from "../../common/Header";
 import SearchSection from "../../common/SearchSection";
+import { useState } from "react";
+import Nav from "../../common/Nav";
+import CatCarousel from "./CatCarousel";
 
 const LandingPage = () => {
-	const state = useSelector(selectState);
-	const router = useRouter();
 	const [visible, setVisible] = useState(0);
 
 	
 
-	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-	const open = Boolean(anchorEl);
-	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-		setAnchorEl(event.currentTarget);
-	};
-	const handleClose = () => {
-		setAnchorEl(null);
-	};
+	
 
 	return (
 		<>
 			<div className="bdy">
 				<Header></Header>
 				<SearchSection></SearchSection>
-				<div className={styles.nav}>
-					<div className={styles.navBar}>
-						<Link href="#" onClick={handleClick} className={styles.navLink}>
-							<Typography variant="h6" component="span">
-								categorytype
-							</Typography>
-							<ExpandMoreIcon />
-						</Link>
-						<Link onClick={handleClick} className={styles.navLink}>
-							<Typography variant="h6" component="span">
-								Painting
-							</Typography>
-							<ExpandMoreIcon />
-						</Link>
-						<Link onClick={handleClick} className={styles.navLink}>
-							<Typography variant="h6" component="span">
-								Drawing
-							</Typography>
-							<ExpandMoreIcon />
-						</Link>
-						<Link onClick={handleClick} className={styles.navLink}>
-							<Typography variant="h6" component="span">
-								surface
-							</Typography>
-							<ExpandMoreIcon />
-						</Link>
-						<Link className={styles.navLink}>
-							<Typography variant="h6" component="span">
-								brands
-							</Typography>
-							<ExpandMoreIcon />
-						</Link>
-						<Link className={styles.navLink}>
-							<Typography variant="h6" component="span">
-								contact us
-							</Typography>
-						</Link>
-					</div>
-					<Menu
-						id="basic-menu"
-						anchorEl={anchorEl}
-						open={open}
-						onClose={handleClose}
-						MenuListProps={{
-							"aria-labelledby": "basic-button",
-						}}
-					>
-						<MenuItem onClick={handleClose}>Profile</MenuItem>
-						<MenuItem onClick={handleClose}>My account</MenuItem>
-						<MenuItem onClick={handleClose}>Logout</MenuItem>
-					</Menu>
-				</div>
-				<Carousel
-					showStatus={false}
-					showThumbs={false}
-					showArrows={true}
-					onChange={() => {}}
-					onClickItem={() => {}}
-					onClickThumb={() => {}}
-				>
-					<div className={styles.carouselImg}>
-						<div className={styles.carousel1}>
-							<div className={styles.carouselContent}>
-								<div className={styles.carouselContentText}>
-									<Grid container spacing={2}>
-										<Grid item xs={12} md={12}>
-											<Typography variant="h4" component="span">
-												Paint your world with color
-											</Typography>
-										</Grid>
-									</Grid>
-
-									<Grid container spacing={2}>
-										<Grid item xs={12} md={12}>
-											<Button onClick={()=> { router.push('/products') }}>Shop Now</Button>
-										</Grid>
-									</Grid>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div className={styles.carouselImg}>
-						<img src="https://storage.cloud.google.com/myfirstprojecttestecom/productimages/51lndCdP7uL._SX679_.jpg?authuser=1" />
-					</div>
-					<div className={styles.carouselImg}>
-						<img src="https://storage.cloud.google.com/myfirstprojecttestecom/productimages/51lndCdP7uL._SX679_.jpg?authuser=1" />
-					</div>
-					<div className={styles.carouselImg}>
-						<img src="https://storage.cloud.google.com/myfirstprojecttestecom/productimages/51lndCdP7uL._SX679_.jpg?authuser=1" />
-					</div>
-				</Carousel>
+				<Nav></Nav>
+				<CatCarousel></CatCarousel>
 				<section className={styles.webSection}>
 					<div className={styles.sectionHeader}>
 						<Typography variant="h5" component="h5">
