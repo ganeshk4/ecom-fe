@@ -1,5 +1,8 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Header from "../../common/Header";
+import Nav from "../../common/Nav";
+import SearchSection from "../../common/SearchSection";
 import { getRequest } from "../../utils/requests";
 import styles from "./cart.module.scss";
 
@@ -26,6 +29,8 @@ const CartPage = () => {
 
 	return (
 		<>
+			<Header></Header>
+			<Nav></Nav>
 			<div className={`${styles.cartPage}`}>
 				<div className={styles.smallWrapper}>
 					<div className={styles.cartWrapper}>
