@@ -20,11 +20,11 @@ const Header = () => {
 			<div className={styles.header}>
 				<Grid container>
 					<Grid item md={2}>
-            <Link href="/">
-              <div className={styles.logo}>
-                <img src="/logo.svg"></img>
-              </div>
-            </Link>
+						<Link href="/">
+							<div className={styles.logo}>
+								<img src="/logo.svg"></img>
+							</div>
+						</Link>
 					</Grid>
 					<Grid item md={8}></Grid>
 					<Grid item md={2}>
@@ -38,18 +38,21 @@ const Header = () => {
 										1
 									)}${user?.lastName.substring(0, 1)}`}</div>
 								) : (
-                  <Typography className={styles.loginCta} onClick={login}>Login</Typography>
+									<Typography className={styles.loginCta} onClick={login}>
+										Login
+									</Typography>
 								)}
 							</div>
-              <div className={styles.cartLnk}>
-                <Link className={styles.cartPic} href="/cart">
-                  <div className={styles.cartCount}>
-                    <Typography variant="subtitle2" component="div">1</Typography>
-                  </div>
-                  <ShoppingCartOutlinedIcon fontSize="large"/>
-                </Link>
-              </div>
-              
+							<div className={styles.cartLnk}>
+								<Link className={styles.cartPic} href="/cart">
+									<div className={styles.cartCount}>
+										<Typography variant="subtitle2" component="div">
+											1
+										</Typography>
+									</div>
+									<ShoppingCartOutlinedIcon fontSize="large" />
+								</Link>
+							</div>
 						</div>
 					</Grid>
 				</Grid>

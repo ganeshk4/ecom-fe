@@ -85,31 +85,29 @@ const LandingPage = () => {
 													}}
 												>
 													<div className={styles.paperBody}>
+														<div className={styles.paperBodyImg}>
+															<img src="/temp1.avif" />
+														</div>
 														<div>
-															<div className={styles.paperBodyImg}>
-																<img src="/temp1.avif" />
+															<div className={styles.paperBodyPrice}>
+																<Typography variant="h4" component="h4">
+																	&#8377;200
+																</Typography>
 															</div>
-															<div>
-																<div className={styles.paperBodyPrice}>
-																	<Typography variant="h4" component="h4">
-																		&#8377;200
-																	</Typography>
-																</div>
-																<div className={styles.paperBodyDesc}>
-																	<Typography variant="body1" component="span">
-																		Fabriano Artistico Watercolour Paper 3+1
-																		Bonus Packs (Traditional White)
-																	</Typography>
-																</div>
-																{visible === num && (
-																	<Button
-																		fullWidth
-																		className={styles.paperBodyBtn}
-																	>
-																		Add To Cart
-																	</Button>
-																)}
+															<div className={styles.paperBodyDesc}>
+																<Typography variant="body1" component="span">
+																	Fabriano Artistico Watercolour Paper 3+1 Bonus
+																	Packs (Traditional White)
+																</Typography>
 															</div>
+															{visible === num && (
+																<Button
+																	fullWidth
+																	className={styles.paperBodyBtn}
+																>
+																	Add To Cart
+																</Button>
+															)}
 														</div>
 													</div>
 												</Paper>

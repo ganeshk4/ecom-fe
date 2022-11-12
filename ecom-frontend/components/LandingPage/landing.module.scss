@@ -16,10 +16,13 @@
 
   .paperBody {
     padding: 10px;
+    position: relative;
   }
   .paperBodyBtn {
-    margin-top: 20px;
+    box-shadow: 0px 0px 30px 10px $colorFont;
+    bottom: 0px;
     color: $colorFont;
+    position: absolute;
     background-color: $colorBgOrange; 
   }
   .paperBodyPrice {
@@ -34,5 +37,3 @@
     }
   }
 }
-
-
