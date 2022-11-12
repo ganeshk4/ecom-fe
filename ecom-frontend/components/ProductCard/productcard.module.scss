@@ -25,6 +25,7 @@
 }
 .name {
   @extend .heading2;
+  color: $colorBg;
   margin-bottom: 5px;
   cursor: pointer;
 }

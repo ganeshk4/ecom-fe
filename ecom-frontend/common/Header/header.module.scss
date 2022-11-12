@@ -43,6 +43,7 @@
     background: $colorBgOrange;
     border: 1px $colorBg solid;
     display: flex;
+    z-index: 1;
     align-items: center;
     justify-content: center;
   }
