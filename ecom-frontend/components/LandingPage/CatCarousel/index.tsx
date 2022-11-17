@@ -18,6 +18,9 @@ const CatCarousel = () => {
 			showStatus={false}
 			showThumbs={false}
 			showArrows={true}
+			interval={5000}
+			autoPlay={true}
+			infiniteLoop={true}
 			onChange={() => {}}
 			onClickItem={() => {}}
 			onClickThumb={() => {}}

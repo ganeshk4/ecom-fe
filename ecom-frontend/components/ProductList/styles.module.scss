@@ -13,8 +13,8 @@
   color: $colorBg;
 }
 .filters {
-  width: 30%;
+  width: 25%;
 }
 .productsSection {
-  width: 65%;
+  width: calc(75% - 30px);
 }

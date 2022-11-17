@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import Footer from "../../common/Footer";
 import Header from "../../common/Header";
@@ -86,7 +87,7 @@ const ProductList = () => {
 
 	return (
 		<>
-      <Header></Header>
+			<Header></Header>
 			<SearchSection></SearchSection>
 			<Nav></Nav>
 			<div className={`${styles.productListPage}`}>
@@ -101,15 +102,19 @@ const ProductList = () => {
 						)}
 					</div>
 					<div className={styles.productsSection}>
-						{products &&
-							products.length &&
-							products.map((product: any) => (
-								<ProductCard product={product} key={product.id}></ProductCard>
-							))}
+						<Grid xs={12} container>
+							{products &&
+								products.length &&
+								products.map((product: any) => (
+									<Grid item xs={12} sm={6} key={product.id}>
+                    <ProductCard product={product} ></ProductCard>
+                  </Grid>
+								))}
+						</Grid>
 					</div>
 				</div>
 			</div>
-      <Footer></Footer>
+			<Footer></Footer>
 		</>
 	);
 };
