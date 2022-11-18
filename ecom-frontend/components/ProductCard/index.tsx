@@ -25,52 +25,77 @@ const ProductCard = ({ product }: any) => {
   }
 	return (
 		// <Card className={styles.productcard} variant="outlined">
-			<div className={styles.productcardBody}>
-				<div className={styles.productImagePart}>
-					<img src={product.imageUrl} />
+		<div className={styles.productcardBody}>
+			<div className={styles.productImagePart}>
+				<img src={product.imageUrl} />
+			</div>
+			<div className={styles.productDetailsPart}>
+				<div onClick={showDetails} className={styles.name}>
+					<Typography component="span" variant="h5">
+						{product.name}
+					</Typography>
 				</div>
-				<div className={styles.productDetailsPart}>
-					<div onClick={showDetails} className={styles.name}>
-						<Typography component="span" variant="h5">{product.name}</Typography>
-					</div>
-					<div className={styles.category}>{product.category}</div>
-					<div className={styles.ratings}>Ratings</div>
-					<div className={styles.priceSection}>
-						<div className={styles.price}>&#8377;{product.sellingPriceAT}</div>
-						<div className={styles.fakePrice}>
+				{/* <div className={styles.category}>{product.category}</div> */}
+				{/* <div className={styles.ratings}>Ratings</div> */}
+				<div className={styles.priceSection}>
+					<Typography component="span" variant="h4">
+						&#8377;{product.sellingPriceAT}
+					</Typography>
+					&nbsp;&nbsp;
+					<Typography
+						className={styles.fakePrice}
+						component="span"
+						variant="h6"
+					>
+						&#8377;{product.displayPrice}
+					</Typography>
+					{/* <div className={styles.price}>&#8377;{product.sellingPriceAT}</div> */}
+					{/* <div className={styles.fakePrice}>
 							&#8377;{product.displayPrice}
 						</div>
-						<div className={styles.discount}>{product.discount}%</div>
+						<div className={styles.discount}>{product.discount}%</div> */}
+				</div>
+				{product.description && product.description.length && (
+					<div className={styles.details}>
+						<ul>
+							{product.description.map((detail: any, $index: number) => {
+								return (
+									<li key={$index}>
+										<Typography component="span" variant="subtitle2">
+											{detail}
+										</Typography>
+									</li>
+								);
+							})}
+						</ul>
 					</div>
-					{product.description && product.description.length && (
-						<div className={styles.details}>
-							<ul>
-								{product.description.map((detail: any, $index: number) => {
-									return <li key={$index}>{detail}</li>;
-								})}
-							</ul>
-						</div>
+				)}
+				<div className={styles.actions}>
+					{product?.availablity?.availableQty > 0 && (
+						<>
+							<Button
+								variant="contained"
+								onClick={() => addToCart(product.id)}
+								className={styles.actionCta}
+							>
+								{" "}
+								Add to cart
+							</Button>
+							{/* <button className={styles.actionCta}> Buy now</button> */}
+						</>
 					)}
-					<div className={styles.actions}>
-						{product?.availablity?.availableQty > 0 && (
-							<>
-								<Button
-									variant="contained"
-									onClick={() => addToCart(product.id)}
-									className={styles.actionCta}
-								>
-									{" "}
-									Add to cart
-								</Button>
-								{/* <button className={styles.actionCta}> Buy now</button> */}
-							</>
-						)}
-						{product?.availablity?.availableQty == 0 && (
-							<div className={styles.outOfStock}>Out of Stock</div>
-						)}
-					</div>
+					{product?.availablity?.availableQty == 0 && (
+						<Typography
+							className={styles.outOfStock}
+							component="div"
+							variant="subtitle1"
+						>
+							Out of Stock
+						</Typography>
+					)}
 				</div>
 			</div>
+		</div>
 		// </Card>
 	);
 };

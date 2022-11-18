@@ -106,7 +106,7 @@ const ProductList = () => {
 							{products &&
 								products.length &&
 								products.map((product: any) => (
-									<Grid item xs={12} sm={6} key={product.id}>
+									<Grid item xs={12} md={6} key={product.id}>
                     <ProductCard product={product} ></ProductCard>
                   </Grid>
 								))}
